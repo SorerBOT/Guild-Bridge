@@ -161,7 +161,7 @@ There are only a few lines of basic code, which you need to either comment out o
 1. Delete the `api` folder from the [src folder](https://github.com/oceanroleplay/discord.ts-example/tree/main/src)
 1. Remove api reference from importx path in [main.ts#L57](https://github.com/oceanroleplay/discord.ts-example/blob/main/src/main.ts#L57)
 1. Comment out or remove the code from [main.ts#L5](https://github.com/oceanroleplay/discord.ts-example/blob/main/src/main.ts#L5) and [main.ts#L66](https://github.com/oceanroleplay/discord.ts-example/blob/main/src/main.ts#L66) - [main.ts#L81](https://github.com/oceanroleplay/discord.ts-example/blob/main/src/main.ts#L81)
-1. Run `npm uninstall koa @koa/router @discordx/koa @types/koa`
+1. Run `npm uninstall koa @koa/router @discordx/koa @types/koa @types/koa__router`
 
 The API server has been removed from the discord bot
 
