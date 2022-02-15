@@ -80,7 +80,11 @@ npm run build
 For windows user only
 
 ```bash
+# For command prompt
 set BOT_TOKEN=REPLACE_THIS_WITH_YOUR_TOKEN
+
+# For powershell
+$env:BOT_TOKENS = "REPLACE_THIS_WITH_YOUR_TOKEN"
 ```
 
 For linux user only
