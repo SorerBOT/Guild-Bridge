@@ -84,7 +84,7 @@ For windows user only
 set BOT_TOKEN=REPLACE_THIS_WITH_YOUR_TOKEN
 
 # For powershell
-$env:BOT_TOKENS = "REPLACE_THIS_WITH_YOUR_TOKEN"
+$env:BOT_TOKEN = "REPLACE_THIS_WITH_YOUR_TOKEN"
 ```
 
 For linux user only
