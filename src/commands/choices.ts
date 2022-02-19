@@ -12,7 +12,7 @@ class choicesExample {
   @Slash("choose")
   async choose(
     @SlashChoice("Human", "human")
-    @SlashChoice("Astraunot", "astro")
+    @SlashChoice("Astronaut", "astronaut")
     @SlashChoice("Dev", "dev")
     @SlashOption("what", { description: "What are you?" })
     what: string,

@@ -115,7 +115,7 @@ This repository uses guild commands instead of global commands by default. This 
 
 # Use CommonJS
 
-This repo is targed to use ECMAScript modules by default. Follow these steps to use CommonJS.
+This repo is targeted to use ECMAScript modules by default. Follow these steps to use CommonJS.
 
 ## Update package.json
 

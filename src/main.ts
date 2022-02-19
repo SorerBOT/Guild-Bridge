@@ -65,7 +65,7 @@ async function run() {
 
   // ************* rest api section: start **********
 
-  // api: preare server
+  // api: prepare server
   const server = new Koa();
 
   // api: need to build the api server first

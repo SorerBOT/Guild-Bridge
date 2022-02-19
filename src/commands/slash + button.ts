@@ -33,7 +33,7 @@ class buttonExample {
   }
 
   @ButtonComponent("hello-btn")
-  mybtn(interaction: ButtonInteraction) {
+  helloBtn(interaction: ButtonInteraction) {
     interaction.reply(`👋 ${interaction.member}`);
   }
 }

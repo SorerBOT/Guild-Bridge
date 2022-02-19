@@ -19,9 +19,8 @@
     "url": "git+https://github.com/oceanroleplay/discord.ts-example.git"
   },
   "license": "MIT",
-  "author": "Indian Ocean Roleplay",
   "contributors": [
-    "Harry <indianoceanroleplay@gmail.com> (https://github.com/oceanroleplay)"
+    "Vijay Meena <vijayymmeena@gmail.com> (https://github.com/oceanroleplay)"
   ],
   "type": "module",
   "main": "build/main.js",
@@ -39,7 +38,7 @@
     "@discordx/utilities": "^3.4.2",
     "@koa/router": "^10.1.1",
     "discord.js": "^13.6.0",
-    "discordx": "^9.2.7",
+    "discordx": "^9.3.1",
     "koa": "^2.13.4",
     "reflect-metadata": "^0.1.13"
   },

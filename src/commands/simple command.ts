@@ -4,6 +4,7 @@ import {
   SimpleCommand,
   SimpleCommandMessage,
   SimpleCommandOption,
+  SimpleCommandOptionType,
   Slash,
 } from "discordx";
 
@@ -16,8 +17,10 @@ class simpleCommandExample {
 
   @SimpleCommand("sum", { argSplitter: "+" })
   sum(
-    @SimpleCommandOption("num1", { type: "NUMBER" }) num1: number | undefined,
-    @SimpleCommandOption("num2", { type: "NUMBER" }) num2: number | undefined,
+    @SimpleCommandOption("num1", { type: SimpleCommandOptionType.Number })
+    num1: number | undefined,
+    @SimpleCommandOption("num2", { type: SimpleCommandOptionType.Number })
+    num2: number | undefined,
     command: SimpleCommandMessage
   ) {
     if (!num1 || !num2) {
@@ -27,17 +30,17 @@ class simpleCommandExample {
   }
 
   // make single handler for simple and slash command
-  likeit(command: CommandInteraction | Message) {
+  likeIt(command: CommandInteraction | Message) {
     command.reply(`I like it, Thanks`);
   }
 
-  @SimpleCommand("likeit")
-  simpleLikeit(command: SimpleCommandMessage) {
-    this.likeit(command.message);
+  @SimpleCommand("like_it")
+  simpleLikeIt(command: SimpleCommandMessage) {
+    this.likeIt(command.message);
   }
 
-  @Slash("likeit")
-  slashLikeit(command: CommandInteraction) {
-    this.likeit(command);
+  @Slash("like_it")
+  slashLikeIFt(command: CommandInteraction) {
+    this.likeIt(command);
   }
 }
