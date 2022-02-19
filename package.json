@@ -20,7 +20,7 @@
   },
   "license": "MIT",
   "contributors": [
-    "Vijay Meena <vijayymmeena@gmail.com> (https://github.com/oceanroleplay)"
+    "Vijay Meena <indianoceanroleplay@gmail.com> (https://github.com/oceanroleplay)"
   ],
   "type": "module",
   "main": "build/main.js",
