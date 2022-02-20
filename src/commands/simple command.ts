@@ -34,13 +34,13 @@ class simpleCommandExample {
     command.reply(`I like it, Thanks`);
   }
 
-  @SimpleCommand("like_it")
+  @SimpleCommand("like-it")
   simpleLikeIt(command: SimpleCommandMessage) {
     this.likeIt(command.message);
   }
 
-  @Slash("like_it")
-  slashLikeIFt(command: CommandInteraction) {
+  @Slash("like-it")
+  slashLikeIt(command: CommandInteraction) {
     this.likeIt(command);
   }
 }
