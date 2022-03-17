@@ -1,4 +1,5 @@
-import { Discord, On, Client, ArgsOf } from "discordx";
+import { Discord, On, Client } from "discordx";
+import type {ArgsOf} from "discordx";
 import Bot from "../Mineflayer/initialiseBot.js";
 
 @Discord()
