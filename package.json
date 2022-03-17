@@ -25,7 +25,7 @@
   "type": "module",
   "main": "build/main.js",
   "scripts": {
-    "build": "tsc",
+    "build": "ttsc",
     "build:changelog": "npx @discordx/changelog --root=src",
     "dev": "node --loader ts-node/esm/transpile-only src/main.ts",
     "start": "nodemon --exec node --loader ts-node/esm/transpile-only src/main.ts",
@@ -38,8 +38,13 @@
     "@discordx/utilities": "^4.0.0",
     "@koa/router": "^10.1.1",
     "discord.js": "^13.6.0",
-    "discordx": "^9.3.3",
+    "discordx": "^9.4.1",
+    "dotenv": "^16.0.0",
     "koa": "^2.13.4",
+    "minecraft-protocol": "^1.32.0",
+    "mineflayer": "^4.1.0",
+    "prismarine-chunk": "^1.30.0",
+    "readable-stream": "^3.6.0",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
@@ -50,7 +55,9 @@
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "ts-node": "^10.5.0",
-    "typescript": "^4.5.5"
+    "ts-transformer-keys": "^0.4.3",
+    "ttypescript": "^1.5.13",
+    "typescript": "^4.6.2"
   },
   "engines": {
     "node": ">=16.0.0",

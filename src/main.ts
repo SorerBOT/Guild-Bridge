@@ -1,10 +1,13 @@
 import "reflect-metadata";
+import "dotenv/config";
 import { Intents, Interaction, Message } from "discord.js";
 import { Client } from "discordx";
 import { dirname, importx } from "@discordx/importer";
-import { Koa } from "@discordx/koa";
+import Bot from "./Mineflayer/initialiseBot.js";
+import bindEvents from "./Mineflayer/Events/index.js";
 
 export const client = new Client({
+  silent: true,
   simpleCommand: {
     prefix: "!",
   },
@@ -18,11 +21,9 @@ export const client = new Client({
   // If you only want to use global commands only, comment this line
   botGuilds: [(client) => client.guilds.cache.map((guild) => guild.id)],
 });
-
 client.once("ready", async () => {
   // make sure all guilds are in cache
   await client.guilds.fetch();
-
   // init all application commands
   await client.initApplicationCommands({
     guild: { log: true },
@@ -38,7 +39,7 @@ client.once("ready", async () => {
   //    ...client.guilds.cache.map((g) => g.id)
   //  );
 
-  console.log("Bot started");
+  console.log(`Client: ${client.user?.username} is now online!`);
 });
 
 client.on("interactionCreate", (interaction: Interaction) => {
@@ -53,32 +54,30 @@ async function run() {
   // with cjs
   // await importx(__dirname + "/{events,commands}/**/*.{ts,js}");
   // with ems
-  await importx(
-    dirname(import.meta.url) + "/{events,commands,api}/**/*.{ts,js}"
-  );
+  
+  importx(dirname(import.meta.url) + '/{events,commands,api}/**/*.js');
 
   // let's start the bot
   if (!process.env.BOT_TOKEN) {
     throw Error("Could not find BOT_TOKEN in your environment");
   }
   await client.login(process.env.BOT_TOKEN); // provide your bot token
-
   // ************* rest api section: start **********
 
   // api: prepare server
-  const server = new Koa();
+  // const server = new Koa();
 
-  // api: need to build the api server first
-  await server.build();
+  // // api: need to build the api server first
+  // await server.build();
 
-  // api: let's start the server now
-  const port = process.env.PORT ?? 3000;
-  server.listen(port, () => {
-    console.log(`discord api server started on ${port}`);
-    console.log(`visit localhost:${port}/guilds`);
-  });
+  // // api: let's start the server now
+  // const port = process.env.PORT ?? 3000;
+  // server.listen(port, () => {
+  //   console.log(`discord api server started on ${port}`);
+  //   console.log(`visit localhost:${port}/guilds`);
+  // });
 
   // ************* rest api section: end **********
 }
-
-run();
+await run();
+bindEvents();

@@ -1,0 +1,23 @@
+{
+    "apikey": "b7194a62-ac99-4dcb-9e50-29f9e10c4c99",
+    "guild": "720754343749353637",
+    "channel": "759476306181226542",
+    "investigationschannel": "788874256242442295",
+    "channel2": "774014415003189268",
+    "prefix": "!",
+    "commandPrefix": "cc.",
+    "host": "hypixel.net",
+    "port": 25565,
+    "username": "ohad0712@gmail.com",
+    "password": "AKOSdnmpIJAKOSNDAKOSdnmPIASND123123817987",
+    "token": "NzA1NzIwMjU2NTg0MzUxNzk0.XqvzNA.erP1eVthrI1BF2X91LBL9UEDnlk",
+    "owner": [
+        "185414657484259328",
+        "406766456663965698",
+        "166630166825664512"
+    ],
+    "bannedmembers": [
+        "355912279679827968",
+        "282326684974448640"
+    ]
+}
