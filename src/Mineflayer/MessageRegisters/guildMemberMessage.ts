@@ -3,10 +3,11 @@ import Player from "../../Interfaces/Player.js";
 import { createGuildMemberMessageEmbed } from "../../Util/createEmbed.js";
 
 export default function guildMemberMessage(match: RegExpMatchArray): void {
+    if (!match.groups) throw new Error("Guild Member Message Regex is flawed.");
     const player: Player = {
-        username: match[2],
-        rank: match[3] ? match[3] : "",
+        username: match.groups.username,
+        rank: match.groups.rank ? match.groups.rank : "",
         status: true
     }
-    CHANNEL.send({embeds: [createGuildMemberMessageEmbed(player.username, match[4], player.rank)]});
+    CHANNEL.send({embeds: [createGuildMemberMessageEmbed(player.username, match.groups.content, player.rank as string)]});
 }
