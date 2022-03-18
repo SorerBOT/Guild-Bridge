@@ -1,6 +1,6 @@
 import { HexColorString, MessageEmbed } from "discord.js"
 
-export function createMemberStatusEmbed(status: boolean, username: string): MessageEmbed {
+export function createGuildMemberStatusEmbed(username: string, status: boolean): MessageEmbed {
     if (!(process.env.STATUS_COLOUR_POSITIVE && process.env.STATUS_COLOUR_NEGATIVE)) throw new Error("No member status colours specified.");
     const colour = status ? process.env.STATUS_COLOUR_POSITIVE : process.env.STATUS_COLOUR_NEGATIVE;
     const hexColourValue = colour as HexColorString;
@@ -14,7 +14,7 @@ export function createMemberStatusEmbed(status: boolean, username: string): Mess
     .setTimestamp();
     return embed;
 }
-export function createMemberMessageEmbed(username: string, message: string, rank: string): MessageEmbed {
+export function createGuildMemberMessageEmbed(username: string, message: string, rank: string): MessageEmbed {
     const embed = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor({
