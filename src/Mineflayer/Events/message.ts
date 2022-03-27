@@ -4,6 +4,7 @@ import { guildMemberStatusRegex, guildMemberMessageRegex, guildMemberActivityReg
 import guildMemberMessage from "../MessageRegisters/guildMemberMessage.js";
 import guildMemberStatus from "../MessageRegisters/guildMemberStatus.js";
 import guildMemberVerifyBot from "../../Util/verifyBot.js";
+import { Bot } from "discordx";
 // guildMemberStatusRegex: usecases: #1: Guild > Sorer left. #2: Guild > Sorer joined.
 // guildMemberActivityRegex: usecases: 1#: [MVP+] Katoulis joined the guild! #2: [MVP+] Katoulis was kicked from the guild by [MVP+] Sorer! #3: [MVP+] Katoulis left the guild!
 export default async function message(Bot: mineflayer.Bot, jsonMsg: ChatMessage, position: string) {
