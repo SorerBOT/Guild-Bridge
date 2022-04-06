@@ -1,37 +1,16 @@
-import { client } from "../../main.js";
-import { Discord } from "discordx";
 import { ChatMessage } from "prismarine-chat"
 import mineflayer from "mineflayer";
-import fetchMinecraftAPI from "../../Util/fetchMinecraftAPI.js";
-import { createMemberStatusEmbed, createMemberMessageEmbed } from "../../Util/createEmbed.js";
-import { MessageEmbed, TextBasedChannel } from "discord.js";
-import { memberStatusRegex, guildMessageRegex, commandMessageRegex } from "../../Util/regexRegisters.js";
-
-const GUILD = await client.guilds.fetch(process.env.BRIDGE_GUILD_ID as string);
-if (!GUILD) throw new Error("Invalid GuildID specified.");
-const GCHANNEL = await GUILD.channels.fetch(process.env.BRIDGE_CHANNEL_ID as string);
-if (!GCHANNEL) throw new Error("Invalid ChannelID specified.");
-const CHANNEL = GCHANNEL as TextBasedChannel;
-
-interface Player {
-    username: string;
-    uuid: string;
-    rank: string;
-    status: boolean;
-}
-
+import { guildMemberStatusRegex, guildMemberMessageRegex, guildMemberActivityRegex } from "../../Util/regexRegisters.js";
+import guildMemberMessage from "../MessageRegisters/guildMemberMessage.js";
+import guildMemberStatus from "../MessageRegisters/guildMemberStatus.js";
+import guildMemberVerifyBot from "../../Util/verifyBot.js";
+import { Bot } from "discordx";
+// guildMemberStatusRegex: usecases: #1: Guild > Sorer left. #2: Guild > Sorer joined.
+// guildMemberActivityRegex: usecases: 1#: [MVP+] Katoulis joined the guild! #2: [MVP+] Katoulis was kicked from the guild by [MVP+] Sorer! #3: [MVP+] Katoulis left the guild!
 export default async function message(Bot: mineflayer.Bot, jsonMsg: ChatMessage, position: string) {
     const message = jsonMsg.toString();
-    if (!(memberStatusRegex.test(message) || guildMessageRegex.test(message))) return;
-    const match = message.match(memberStatusRegex.test(message) ? memberStatusRegex : guildMessageRegex) as RegExpExecArray;
-    const index = memberStatusRegex.test(message) ? 1 : 2;
-    if (match[index] === Bot.username) return;
-    const data = await fetchMinecraftAPI(match[index]);
-    const player: Player = {
-        username: data.name,
-        uuid: data.id,
-        rank: guildMessageRegex.test(message) ? match[3] ? match[3] : "" : "",
-        status: (memberStatusRegex.test(message) ? (match[2] === "joined" ? true : false) : true)
-    }
-    CHANNEL.send({embeds: [memberStatusRegex.test(message) ? (createMemberStatusEmbed(player.status, player.username)) : createMemberMessageEmbed(player.username, match[4], player.rank)]});
+    if (guildMemberVerifyBot(message, Bot.username)) return;
+    if (guildMemberMessageRegex.test(message)) guildMemberMessage(message.match(guildMemberMessageRegex) as RegExpMatchArray);
+    if (guildMemberStatusRegex.test(message)) guildMemberStatus(message.match(guildMemberStatusRegex) as RegExpMatchArray);
+    if (guildMemberActivityRegex.test(message)) guildMemberStatus(message.match(guildMemberActivityRegex) as RegExpMatchArray);
 }
