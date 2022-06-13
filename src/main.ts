@@ -1,10 +1,9 @@
 import "reflect-metadata";
 import "dotenv/config";
-import { Intents, Interaction, Message } from "discord.js";
+import { Intents } from "discord.js";
 import { Client } from "discordx";
 import { dirname, importx } from "@discordx/importer";
-import Bot from "./Mineflayer/initialiseBot.js";
-import bindEvents from "./Mineflayer/Events/index.js";
+import initialiseBot from "./Mineflayer/initialiseBot.js";
 
 export const client = new Client({
   silent: true,
@@ -20,6 +19,7 @@ export const client = new Client({
   ],
   botGuilds: [(client) => client.guilds.cache.map((guild) => guild.id)],
 });
+
 client.once("ready", async () => {
   await client.guilds.fetch();
   await client.initApplicationCommands({
@@ -34,5 +34,5 @@ async function run() {
   if (!process.env.BOT_TOKEN) throw Error("Could not find BOT_TOKEN in your environment");
   await client.login(process.env.BOT_TOKEN);
 }
+
 await run();
-bindEvents();
