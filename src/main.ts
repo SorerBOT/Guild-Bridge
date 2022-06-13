@@ -16,7 +16,7 @@ export const client = new Client({
     Intents.FLAGS.GUILD_MEMBERS,
     Intents.FLAGS.GUILD_MESSAGES,
     Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-    Intents.FLAGS.GUILD_VOICE_STATES,
+    Intents.FLAGS.GUILD_VOICE_STATES
   ],
   botGuilds: [(client) => client.guilds.cache.map((guild) => guild.id)],
 });
@@ -26,7 +26,6 @@ client.once("ready", async () => {
     guild: { log: true },
     global: { log: true },
   });
-  await client.initApplicationPermissions(true);
   console.log(`Client: ${client.user?.username} is now online!`);
 });
 

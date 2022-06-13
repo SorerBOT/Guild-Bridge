@@ -1,9 +1,8 @@
 import mineflayer from "mineflayer";
-import { mineflayerBotOptions } from "../BotOptions.js";
+import initialiseBot from "../initialiseBot";
+import printError from "../../Util/printError";
 
-export default function end(Bot: mineflayer.Bot, reason: string) {
-    console.warn(reason);
-    setTimeout(() => {
-        mineflayer.createBot(mineflayerBotOptions);
-    }, 10000);
+export default function end(reason: string) {
+    printError("DISCONNECTED", !!reason ? reason : "NOT SPECIFIED");
+    initialiseBot();
 }
