@@ -12,6 +12,6 @@ abstract class AppDiscord {
   ) {
     if (message.author.bot) return;
     if (message.channel.id !== process.env.BRIDGE_CHANNEL_ID) return;
-    Bot.chat(`/gc ${message.author.username}: ${message.content}`);
+    Bot.Bot.chat(`/gc ${message.author.username}: ${message.content}`);
   }
 }

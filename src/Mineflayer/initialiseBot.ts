@@ -12,14 +12,15 @@ class minecraftBot {
         Bot.removeChatPattern("whisper");
 
         Bot.on("end", (reason) => end(reason));
-        Bot.on("message", (jsonMsg, position) => message(Bot, jsonMsg, position));
+        Bot.on("message", (jsonMsg, position) => message(jsonMsg, position));
 
         this.Bot = Bot;
         return Bot;
     }
 }
+const Bot = new minecraftBot;
 
-export default new minecraftBot;
+export default Bot;
 
 
 // export default function initialiseBot() {
