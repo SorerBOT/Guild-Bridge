@@ -49,7 +49,7 @@
     "minecraft-protocol": "^1.32.0",
     "mineflayer": "^4.1.0",
     "prismarine-chunk": "^1.30.0",
-    "readable-stream": "^3.6.0",
+    "readable-stream": "^4.0.0",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
