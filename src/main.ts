@@ -8,4 +8,4 @@ import Discord from "discord.js";
 client.once("ready", () => Ready(client));
 client.on("messageCreate", (message: Discord.Message) => MessageCreate(client, message));
 
-initialiseBot();
+export default initialiseBot();

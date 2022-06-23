@@ -1,8 +1,10 @@
 import Chalk from "chalk";
 import figlet from "figlet";
 
-export default function LogEvent(event: string, message: string, important: boolean = false) {
+export default function LogEvent(event: string, message: string, important: boolean = false, discord = false, minecraft = false) {
+    const whereEventOccur = discord ? Chalk.hex("#7289DA")("DISCORD") : minecraft ? Chalk.hex("#34eb55")("MINECRAFT") : "";
     if (important) console.log(
+        whereEventOccur, 
         Chalk.bgGreen(figlet.textSync(event, {
             font: 'Ghost',
             horizontalLayout: 'default',
@@ -11,6 +13,6 @@ export default function LogEvent(event: string, message: string, important: bool
             whitespaceBreak: true
         }))
     );
-    else console.log(Chalk.bgGreenBright(event));
+    else console.log(whereEventOccur, Chalk.bgGreenBright(event));
     console.log(Chalk.bgGray(message));
 }
