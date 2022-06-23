@@ -1,4 +1,5 @@
 import mineflayer from "mineflayer";
+import "dotenv/config";
 
 if (typeof process.env.MINECRAFT_VERSION !== "string") console.warn("No version specified. (1.18.2)");
 if (typeof process.env.HOST !== "string") throw new Error("No host specified.");
